@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Notes</title>
+        <link href="./style.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript">
+            openLightbox = function(element) {
+                document.getElementById('note-view').innerHTML = element.innerHTML;
+                document.getElementById('outer').style.visibility = 'visible';
+            };
+        </script>
+    </head>
+    <body>
+        <h1>Notes</h1>
+        <form>
+            <label for="note-body">
+                <textarea id="note-body"></textarea>
+            </label>
+            <br>
+            <input type="submit" value="Create">
+        </form>
+        <ul>
+            <li class="note-link" id="1" onclick="openLightbox(this)">Hello, this is new note! I'm going to keep typing and typing <br>to make it longer than 20 chars!</li>
+        </ul>
+        <div id="outer">
+            <div class="inner">
+                <p id="note-view"></p>
+            </div>
+        </div>
+    </body>
+</html>
