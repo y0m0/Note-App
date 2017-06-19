@@ -9,5 +9,9 @@
     this.notes.push(note);
   }
   
+  List.prototype.retrieveNotes = function() {
+    return this.notes;
+  }
+  
   exports.List = List;
 })(this);
