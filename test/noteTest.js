@@ -16,6 +16,16 @@
     }
   };
 
+  function testNoteMethodReadText() {
+    var note = new Note();
+
+    note.addText("This is another test text");
+    if (note.readText() !== "This is another test text") {
+      throw new Error("The text was not read correctly");
+    }
+  };
+
   testNoteTextDefaultsToEmptyString();
   testNoteMethodAddText();
+  testNoteMethodReadText();
 })(this);
