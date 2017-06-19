@@ -1,0 +1,22 @@
+{
+  "name": "note-app",
+  "version": "1.0.0",
+  "description": "simple note app in js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y0m0/Note-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/y0m0/Note-App/issues"
+  },
+  "homepage": "https://github.com/y0m0/Note-App#readme",
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  }
+}
