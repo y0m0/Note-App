@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Notes</title>
+        <link href="./style.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript">
+
+
+          window.onload = function() {
+            var lightbox = document.getElementById('outer')
+            document.getElementById('note-link').addEventListener('click', function(){
+              lightbox.style.visibility = 'visible';
+            });
+          };
+//            openLightbox = function(element) {
+//                document.getElementById('note-view').innerHTML = element.innerHTML;
+//                document.getElementById('outer').style.visibility = 'visible';
+//            };
+        </script>
+    </head>
+    <body>
+        <h1>Notes</h1>
+        <form>
+            <label for="note-body">
+                <textarea id="note-body"></textarea>
+            </label>
+            <br>
+            <input type="submit" value="Create">
+        </form>
+        <ul>
+            <li id="note-link">Hello, this is new note! I'm going to keep typing and typing <br>to make it longer than 20 chars!</li>
+        </ul>
+        <div id="outer">
+            <div class="inner">
+                <p id="note-view"></p>
+            </div>
+        </div>
+    </body>
+</html>
