@@ -7,10 +7,10 @@
     }
   };
 
-  function testNoteMethodAddText() {
+  function testNoteMethodWriteText() {
     var note = new Note();
 
-    note.addText("This is a test text");
+    note.writeText("This is a test text");
     if (note.noteText !== "This is a test text") {
       throw new Error("Note text is not what was entered");
     }
@@ -19,13 +19,13 @@
   function testNoteMethodReadText() {
     var note = new Note();
 
-    note.addText("This is another test text");
+    note.writeText("This is another test text");
     if (note.readText() !== "This is another test text") {
       throw new Error("The text was not read correctly");
     }
   };
 
   testNoteTextDefaultsToEmptyString();
-  testNoteMethodAddText();
+  testNoteMethodWriteText();
   testNoteMethodReadText();
 })(this);
