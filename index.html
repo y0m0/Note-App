@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Notes</title>
         <link href="./style.css" type="text/css" rel="stylesheet">
         <script type="text/javascript">
-            openLightbox = function(element) {
-                document.getElementById('note-view').innerHTML = element.innerHTML;
-                document.getElementById('outer').style.visibility = 'visible';
-            };
+
+
+          window.onload = function() {
+            var lightbox = document.getElementById('outer')
+            document.getElementById('note-link').addEventListener('click', function(){
+              lightbox.style.visibility = 'visible';
+            });
+          };
+//            openLightbox = function(element) {
+//                document.getElementById('note-view').innerHTML = element.innerHTML;
+//                document.getElementById('outer').style.visibility = 'visible';
+//            };
         </script>
     </head>
     <body>
@@ -20,7 +29,7 @@
             <input type="submit" value="Create">
         </form>
         <ul>
-            <li class="note-link" id="1" onclick="openLightbox(this)">Hello, this is new note! I'm going to keep typing and typing <br>to make it longer than 20 chars!</li>
+            <li id="note-link">Hello, this is new note! I'm going to keep typing and typing <br>to make it longer than 20 chars!</li>
         </ul>
         <div id="outer">
             <div class="inner">
