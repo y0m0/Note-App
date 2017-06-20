@@ -49,6 +49,10 @@
                var note = list.notes[itemNumber-1];
                document.getElementById('note-view').innerHTML = note.readText();
                document.getElementById('outer').style.visibility = 'visible';
+               var lightbox = document.getElementById('outer');
+               lightbox.onclick = function() {
+                 lightbox.style.visibility = 'hidden';
+               };
            };
 
         </script>
