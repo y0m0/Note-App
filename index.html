@@ -4,34 +4,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Notes</title>
         <link href="./style.css" type="text/css" rel="stylesheet">
-        <script type="text/javascript">
-
-
-          window.onload = function() {
-            var lightbox = document.getElementById('outer')
-            document.getElementById('note-link').addEventListener('click', function(){
-              lightbox.style.visibility = 'visible';
-            });
-            
-          };
-//            openLightbox = function(element) {
-//                document.getElementById('note-view').innerHTML = element.innerHTML;
-//                document.getElementById('outer').style.visibility = 'visible';
-//            };
-        </script>
+        <script src="model/list.js" type="text/javascript"></script>
+        <script src="model/note.js" type="text/javascript"></script>
+        <script src="controller.js" type="text/javascript"></script>
     </head>
     <body>
         <h1 id="header">Notes</h1>
-        <form>
-            <label for="note-body">
-                <textarea id="note-body"></textarea>
-            </label>
-            <br>
-          <button id="create-note" type="submit" value="Create">Create Note</button>
-        </form>
-        <ul>
-            <li id="note-link">Hello, this is new note! I'm going to keep typing and typing <br>to make it longer than 20 chars!</li>
-        </ul>
+        <textarea id="note-body"></textarea>
+        <br>
+        <button onclick="retrieveBody()" id="createButton" type="button" name="button">Create</button>
+        <ul id="noteList"></ul>
+
         <div id="outer">
             <div class="inner">
                 <p id="note-view"></p>
