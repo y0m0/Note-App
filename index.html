@@ -4,14 +4,42 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Notes</title>
         <link href="./style.css" type="text/css" rel="stylesheet">
+        <script src="model/list.js" type="text/javascript"></script>
+        <script src="model/note.js" type="text/javascript"></script>
         <script type="text/javascript">
 
+          var list;
 
           window.onload = function() {
             var lightbox = document.getElementById('outer')
             document.getElementById('note-link').addEventListener('click', function(){
               lightbox.style.visibility = 'visible';
             });
+          };
+
+          window.onload = function() {
+            list = new List();
+          };
+
+          var createNote = function(body) {
+            var note = new Note();
+            note.writeText(body);
+            list.addNote(note);
+            addNoteToList(note);
+          };
+
+          var retrieveBody = function() {
+            var body = document.getElementById("note-body").value;
+            createNote(body);
+            document.getElementById("note-body").value = "";
+          };
+
+          var addNoteToList = function(note) {
+            console.log(note);
+            var ul = document.getElementById("noteList");
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(note.readText()));
+            ul.appendChild(li);
           };
 //            openLightbox = function(element) {
 //                document.getElementById('note-view').innerHTML = element.innerHTML;
@@ -21,15 +49,16 @@
     </head>
     <body>
         <h1>Notes</h1>
-        <form>
+        <!-- <form id="textForm" onsubmit="retrieveBody()"> -->
             <label for="note-body">
                 <textarea id="note-body"></textarea>
             </label>
             <br>
-            <input type="submit" value="Create">
-        </form>
-        <ul>
-            <li id="note-link">Hello, this is new note! I'm going to keep typing and typing <br>to make it longer than 20 chars!</li>
+            <button onclick="retrieveBody()" id="createButton" type="button" name="button">Create</button>
+            <!-- <input type="submit" value="Create"> -->
+        <!-- </form> -->
+        <ul id="noteList">
+
         </ul>
         <div id="outer">
             <div class="inner">
