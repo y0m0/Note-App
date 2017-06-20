@@ -1,52 +1,37 @@
-(function(exports) {
+var assert = new Assert();
+
   function testNoteTextDefaultsToEmptyString() {
     var note = new Note();
 
-    if (note.noteText !== "") {
-      throw new Error("Note text is not an empty string");
-    } else {
-      console.log(arguments.callee.name + " test passed!")
-    }
+    assert.isTrue(note.noteText === "", arguments.callee.name)
   };
 
   function testNoteMethodWriteText() {
     var note = new Note();
 
     note.writeText("This is a test text");
-    if (note.noteText !== "This is a test text") {
-      throw new Error("Note text is not what was entered");
-    } else {
-      console.log(arguments.callee.name + " test passed!")
-    }
+    assert.isTrue(note.noteText === "This is a test text", arguments.callee.name)
   };
 
   function testNoteMethodReadText() {
     var note = new Note();
 
     note.writeText("This is another test text");
-    if (note.readText() !== "This is another test text") {
-      throw new Error("The text was not read correctly");
-    } else {
-      console.log(arguments.callee.name + " test passed!")
-    }
+    assert.isTrue(note.readText() === "This is another test text", arguments.callee.name)
   };
 
   function testNoteMethodPreviewText() {
     var note = new Note();
 
     note.writeText("This is yet another test text");
-    if (note.previewText() !== "This is yet another...") {
-      throw new Error("This preview was not correct");
-    }
+    assert.isTrue(note.previewText() === "This is yet another...", arguments.callee.name)
   };
 
   function testNoteMethodAssignID() {
     var note = new Note();
 
     note.assignID(2);
-    if (note.ID !== 2) {
-      throw new Error("This is not the correct ID");
-    }
+    assert.isTrue(note.ID === 2, arguments.callee.name)
   };
 
   testNoteTextDefaultsToEmptyString();
@@ -54,4 +39,3 @@
   testNoteMethodReadText();
   testNoteMethodPreviewText();
   testNoteMethodAssignID();
-})(this);

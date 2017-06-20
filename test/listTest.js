@@ -1,14 +1,8 @@
-//'use strict';
-
-(function(exports) {
+var assert = new Assert();
 
   function testListNotesDefaultsToEmptyArray() {
     var list = new List();
-    if (!(Array.isArray(list.notes)) || list.notes.length !== 0) {
-      throw new Error("Notes is not an empty array");
-    } else {
-      console.log(arguments.callee.name + " test passed!")
-    }
+    assert.isTrue(((Array.isArray(list.notes)) && list.notes.length === 0), arguments.callee.name)
   }
 
   function testListMethodAddNote() {
@@ -21,13 +15,9 @@
 
     list.addNote(noteSpy);
 
-    if (list.notes[0] !== noteSpy) {
-      throw new Error("Note is not added to the list");
-    } else {
-      console.log(arguments.callee.name + " test passed!")
-    }
+    assert.isTrue(list.notes[0] === noteSpy, arguments.callee.name)
   }
-  
+
   function testListMethodRetrieveAllNotes() {
     function NoteSpy() {
     }
@@ -39,11 +29,7 @@
     list.addNote(noteSpyOne);
     list.addNote(noteSpyTwo);
 
-    if ((list.retrieveNotes()[0] !== noteSpyOne ) || (list.retrieveNotes()[1] !== noteSpyTwo ))  {
-      throw new Error("Notes are not retrieved from the list");
-    } else {
-      console.log(arguments.callee.name + " test passed!")
-    }
+    assert.isTrue((list.retrieveNotes()[0] === noteSpyOne  && list.retrieveNotes()[1] === noteSpyTwo ), arguments.callee.name)
   }
 
   function testListMethodAssignNoteID() {
@@ -58,9 +44,7 @@
   list.addNote(noteSpyOne);
   list.addNote(noteSpyTwo);
 
-  if ((list.retrieveNotes()[0].ID !== 1 ) || (list.retrieveNotes()[1].ID !== 2 ))  {
-    throw new Error("IDs were not assigned correctly");
-  }
+  assert.isTrue(list.retrieveNotes()[0].ID === 1  && list.retrieveNotes()[1].ID === 2 , arguments.callee.name)
 }
 
 
@@ -69,5 +53,3 @@
   testListMethodAddNote();
   testListMethodRetrieveAllNotes();
   testListMethodAssignNoteID();
-
-})(this);
