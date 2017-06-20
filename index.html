@@ -10,12 +10,12 @@
 
           var list;
 
-          window.onload = function() {
-            var lightbox = document.getElementById('outer')
-            document.getElementsByClass('note-link').addEventListener('click', function(){
-              lightbox.style.visibility = 'visible';
-            });
-          };
+          // window.onload = function() {
+          //   var lightbox = document.getElementById('outer')
+          //   document.getElementsByClass('note-link').addEventListener('click', function(){
+          //     lightbox.style.visibility = 'visible';
+          //   });
+          // };
 
           window.onload = function() {
             list = new List();
@@ -35,17 +35,22 @@
           };
 
           var addNoteToList = function(note) {
-            console.log(note);
             var ul = document.getElementById("noteList");
             var li = document.createElement("li");
             li.appendChild(document.createTextNode(note.previewText()));
-            li.setAttribute("id", note.ID)
+            li.setAttribute("id", note.ID);
+            li.setAttribute("class", "listItem")
+            li.setAttribute("onclick", "openLightbox(this)");
             ul.appendChild(li);
           };
-//            openLightbox = function(element) {
-//                document.getElementById('note-view').innerHTML = element.innerHTML;
-//                document.getElementById('outer').style.visibility = 'visible';
-//            };
+
+           var openLightbox = function(element) {
+               var itemNumber = element.id;
+               var note = list.notes[itemNumber-1];
+               document.getElementById('note-view').innerHTML = note.readText();
+               document.getElementById('outer').style.visibility = 'visible';
+           };
+
         </script>
     </head>
     <body>
