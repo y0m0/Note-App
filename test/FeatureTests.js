@@ -15,15 +15,16 @@
   
   function featureTestCreateNote() {
     var note = document.getElementById("note-body");
-    var button = document.getElementById("create-note");
-    var li = document.getElementsByTagName("li");
-
-    note.innerHTML = "Some content for this note.";
+    var button = document.getElementById("createButton");
+    var ulChildren;
+    
+    note.value = "Some content for this note.";
     
     // Simulate clicking on the specified element.
     triggerEvent( button, 'click' );
+    ulChildren = document.getElementById("noteList").children;
     
-    if ( li.length !== 1) {
+    if ( ulChildren.length !== 1) {
       throw new Error( "Note is not on the page" );
     }
     else {
@@ -31,20 +32,21 @@
     }
   }
   
-  //this test needs to be corrected after merge
   function featureTestCreateMultipleNotes() {
     var note = document.getElementById("note-body");
-    var button = document.getElementById("create-note");
-    var ulChildren = document.getElementsByTagName("ul")[0].children;
+    var button = document.getElementById("createButton");
+    var ulChildren;
 
-    note.innerHTML = "Some content for this note.";
+    note.value = "First content for this note.";
     triggerEvent( button, 'click' );
-    note.innerHTML = "Another thext.";
+    note.value = "Another text.";
     triggerEvent( button, 'click' );
-    note.innerHTML = "One more note.";
+    note.value = "One more note.";
     triggerEvent( button, 'click' );
     
-    if ( ulChildren.length !== 3) {
+    ulChildren = document.getElementById("noteList").children;
+    
+    if ( ulChildren.length !== 4) {
       throw new Error( "Wrong number of notes in the list" );
     }
     else {
@@ -53,18 +55,22 @@
   }
   
   
-  /**
+  /*
   * Trigger the specified event on the specified element.
   * @param  {Object} elem  the target element.    
   * @param  {String} event the type of the event (e.g. 'click').
   */
   function triggerEvent( elem, event ) {
-    var clickEvent = new Event( event ); // Create the event.      elem.dispatchEvent( clickEvent );    // Dispatch the event.   
+    var clickEvent = new Event( event );
+    elem.dispatchEvent( clickEvent );    // Dispatch the event.   
   }
   
   // Run the feature tests
-  featureTestDisplayNoteHeader("Notes");
-  featureTestCreateNote();
-  featureTestCreateMultipleNotes();
+  window.onload = function() {
+    console.log("inside window test load");
+    featureTestDisplayNoteHeader("Notes");
+    featureTestCreateNote();
+    featureTestCreateMultipleNotes();
+  };
 })(this);
  
