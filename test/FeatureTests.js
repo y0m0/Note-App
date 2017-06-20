@@ -31,6 +31,26 @@
     }
   }
   
+  //this test needs to be corrected after merge
+  function featureTestCreateMultipleNotes() {
+    var note = document.getElementById("note-body");
+    var button = document.getElementById("create-note");
+    var ulChildren = document.getElementsByTagName("ul")[0].children;
+
+    note.innerHTML = "Some content for this note.";
+    triggerEvent( button, 'click' );
+    note.innerHTML = "Another thext.";
+    triggerEvent( button, 'click' );
+    note.innerHTML = "One more note.";
+    triggerEvent( button, 'click' );
+    
+    if ( ulChildren.length !== 1) {
+      throw new Error( "Wrong number of notes in the list" );
+    }
+    else {
+      console.log(arguments.callee.name + " test passed!")
+    }
+  }
   
   
   /**
@@ -45,6 +65,6 @@
   // Run the feature tests
   featureTestDisplayNoteHeader("Notes");
   featureTestCreateNote();
-  
+  featureTestCreateMultipleNotes();
 })(this);
  
