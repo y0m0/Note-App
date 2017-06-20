@@ -12,7 +12,7 @@
 
           window.onload = function() {
             var lightbox = document.getElementById('outer')
-            document.getElementById('note-link').addEventListener('click', function(){
+            document.getElementsByClass('note-link').addEventListener('click', function(){
               lightbox.style.visibility = 'visible';
             });
           };
@@ -38,7 +38,8 @@
             console.log(note);
             var ul = document.getElementById("noteList");
             var li = document.createElement("li");
-            li.appendChild(document.createTextNode(note.readText()));
+            li.appendChild(document.createTextNode(note.previewText()));
+            li.setAttribute("id", note.ID)
             ul.appendChild(li);
           };
 //            openLightbox = function(element) {
