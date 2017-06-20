@@ -44,7 +44,7 @@
     note.innerHTML = "One more note.";
     triggerEvent( button, 'click' );
     
-    if ( ulChildren.length !== 1) {
+    if ( ulChildren.length !== 3) {
       throw new Error( "Wrong number of notes in the list" );
     }
     else {
