@@ -29,20 +29,18 @@
     else {
       console.log(arguments.callee.name + " test passed!")
     }
-    
-    /**
-    * Trigger the specified event on the specified element.
-    * @param  {Object} elem  the target element.
-    * @param  {String} event the type of the event (e.g. 'click').
-    */
-    function triggerEvent( elem, event ) {
-      var clickEvent = new Event( event ); // Create the event.
-      elem.dispatchEvent( clickEvent );    // Dispatch the event.
-    }
   }
   
   
   
+  /**
+  * Trigger the specified event on the specified element.
+  * @param  {Object} elem  the target element.    
+  * @param  {String} event the type of the event (e.g. 'click').
+  */
+  function triggerEvent( elem, event ) {
+    var clickEvent = new Event( event ); // Create the event.      elem.dispatchEvent( clickEvent );    // Dispatch the event.   
+  }
   
   // Run the feature tests
   featureTestDisplayNoteHeader("Notes");
