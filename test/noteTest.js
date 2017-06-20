@@ -29,7 +29,7 @@
     var note = new Note();
 
     note.writeText("This is yet another test text");
-    if (note.previewText() !== "This is yet another ...") {
+    if (note.previewText() !== "This is yet another...") {
       throw new Error("This preview was not correct");
     }
   };

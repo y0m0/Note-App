@@ -13,7 +13,11 @@
   };
 
   Note.prototype.previewText = function () {
-    return (this.noteText.slice(0,20) + "...");
+    if (this.noteText.length > 20) {
+      return (this.noteText.slice(0,20).trim() + "...");
+    } else {
+      return this.noteText;
+    }
   };
 
   Note.prototype.assignID = function (id) {
