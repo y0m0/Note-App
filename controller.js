@@ -1,4 +1,4 @@
-var list;
+var list = new List();
 
 // window.onload = function() {
 //   var lightbox = document.getElementById('outer')
@@ -7,9 +7,8 @@ var list;
 //   });
 // };
 
-window.onload = function() {
-  list = new List();
-};
+//window.onload = function() {
+//};
 
 var createNote = function(body) {
   var note = new Note();
@@ -27,11 +26,13 @@ var retrieveBody = function() {
 var addNoteToList = function(note) {
   var ul = document.getElementById("noteList");
   var li = document.createElement("li");
+
   li.appendChild(document.createTextNode(note.previewText()));
   li.setAttribute("id", note.ID);
   li.setAttribute("class", "listItem")
   li.setAttribute("onclick", "openLightbox(this)");
   ul.appendChild(li);
+
 };
 
  var openLightbox = function(element) {
@@ -44,3 +45,4 @@ var addNoteToList = function(note) {
        lightbox.style.visibility = 'hidden';
      };
  };
+
